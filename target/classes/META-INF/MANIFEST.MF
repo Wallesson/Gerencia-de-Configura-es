@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: wallesson
+Build-Jdk: 11.0.8
+Implementation-Title: crud-springboot-1
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.ufc.br
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/crud-springboot-1
+Created-By: Maven Integration for Eclipse
+

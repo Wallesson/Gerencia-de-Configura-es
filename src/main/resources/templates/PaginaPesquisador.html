@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>AFINANP</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+
+</head>
+<body>
+<img src="/imagem/afi.png" alt="some text" width=1620 height=100>
+	
+	<br>
+	<br>
+	<table class="table table-striped table-dark">
+	  <thead>
+	    <tr>
+	      <th scope="col">CÓDIGO</th>
+	      <th scope="col">TITULO</th>
+	      <th scope="col">PESQUISADOR</th>
+	      <th scope="col">INSTITUIÇÃO</th>
+	      <th scope="col">DURAÇÃO</th>
+	 	  <th scope="col">SUBMISSÃO</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr th:each="projeto : ${listaProjetos}">
+	      <td th:text="${projeto.codigoProjeto}"></td>
+	      <td th:text="${projeto.titulo}"></td>
+	      <td th:text="${projeto.pesqProjeto}"></td>
+	      <td th:text="${projeto.instituicao}"></td>
+	      <td th:text="${projeto.duracao}"></td>
+	      <td th:text="${projeto.dataSub}"></td>
+	      
+	      <td><a class="btn btn-warning" th:href="@{/pessoa/atualizar/{codigoProjeto}(codigoProjeto = ${projeto.codigoProjeto})}">ATUALIZAR</a></td>
+	      <td><a class="btn btn-danger" th:href="@{/pessoa/excluir/{codigoProjeto}(codigoProjeto = ${projeto.codigoProjeto})}">EXCLUIR</a></td>
+	    </tr>
+	  </tbody>
+	</table>
+	
+	<a class="btn btn-warning" th:href="@{/pessoa/formularioProjeto}">CADASTRAR NOVO PROJETO</a>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>AFINANP</title>
+<link rel="stylesheet" type="text/css" href="/css/edicao.css"/>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+</head>
+<body>
+	<img src="/imagem/afi.png" alt="some text" width=1620height=100>
+	<br><a class="btn btn-warning" th:href="@{/pessoa/inicial}"><button>Retornar</button></a>
+	<br>
+	<div id="area">
+
+		<form id="formulario" autocomplete="off" action="/pessoa/salvarProjeto" method="POST" th:object="${projeto}"
+		enctype="multipart/form-data">
+			
+			<div class="alert alert-success" role="alert"
+				th:if="${!#strings.isEmpty(mensagem)}">
+				<span th:text="${mensagem}"> </span>
+			</div>
+		
+			<div class="alert alert-danger" role="alert" 
+			th:if="${#fields.hasAnyErrors()}">
+				<div th:each="detailedError : ${#fields.detailedErrors()}">
+					<span th:text="${detailedError.message}"> </span>
+				</div>
+			</div>
+		
+	
+			<center>
+				<fieldset>
+					<input type="hidden" th:field="*{codigoProjeto}">
+					TITULO: <br><input type="text" th:field="*{titulo}" placeholder="Ex.: Projeto de Educação"> <br>
+					DURAÇÃO: <br><input type="text" th:field="*{duracao}" placeholder="Ex.: 1 ano"> <br>
+					INSTITUIÇÃO: <br><input type="text" th:field="*{instituicao}" placeholder="Ex.: UFC"> <br>
+					NOME PESQUISADOR:<br><input type="text" th:field="*{pesqProjeto}" placeholder="Ex.: Leonara"> <br>
+					DATA DE SUBMISSÃO: <br><input type="date" th:field="*{dataSub}"> <br>
+					DESCRIÇÃO: <br><textarea type="text" th:field="*{descricao}"  rows="2" cols="20"></textarea><br>
+					<input type="submit" value="Cadastrar">
+				</fieldset>
+			</center>
+		</form>	
+</body>
+</html>
